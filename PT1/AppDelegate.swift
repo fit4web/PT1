@@ -20,9 +20,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("VzjPG4hKwnAx6pqXMUZeuzcZajXpLqnvgV5RELS5", clientKey: "L6VYNlaFeXPa7nmLlUAgRnW4qgWB3FK9u0HqZPLI")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         // Override point for customization after application launch.
+        registerForRemoteNotifications(application)
+        
+   
+        
         return true
     }
 
+    
+    
+    func registerForRemoteNotifications(application: UIApplication!) {
+        if application.respondsToSelector("registerUserNotificationSettings:") {
+            // iOS 8+
+            let userNotificationTypes = UIUserNotificationType.Alert | .Sound
+            let notificationSettings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+            application.registerUserNotificationSettings(notificationSettings)
+            application.registerForRemoteNotifications()
+        } else {
+            application.registerForRemoteNotificationTypes(.Alert | .Sound)
+        }
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        // Notify Parse of the registration.
+        let currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.channels = ["global"]
+        currentInstallation.saveInBackground()
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        // Just show an alert when notifications are received in-app.
+        PFPush.handlePush(userInfo)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -109,6 +140,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+
+    
 
 }
 

@@ -23,12 +23,12 @@ class ViewController: UIViewController  {
     
     @IBOutlet weak var textfeld: UITextView!
     
+    @IBOutlet weak var setNameField: UITextField!
    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.queryFromGame()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,18 +36,36 @@ class ViewController: UIViewController  {
         // Dispose of any resources that can be recreated.
     }
 
+    func updateUserScore(){
+        
+    var query = PFQuery(className:"GameScore")
+    query.getObjectInBackgroundWithId("Ou4W6HrUHK") {
+    (gameScore: PFObject!, error: NSError!) -> Void in
+        if error != nil {
+            NSLog("%@", error)
+        } else {
+            gameScore["cheatMode"] = true
+           // gameScore["score"] = 1339
+            gameScore.incrementKey("score", byAmount: -1)
+            gameScore["playerName"] = self.setNameField.text
+            gameScore.saveInBackground()
+        }
+    }
+    }
     
 
     func queryFromGame(){
-        name1 = ""
+        println("queryFromGame")
         var query:PFQuery = PFQuery(className: "GameScore")
         query.findObjectsInBackgroundWithBlock{
             (objects:[AnyObject]!, error:NSError!) -> Void in
             
             if error == nil {
                 for object in objects {
+                    println("queryFromGame-FOR-object")
                     let singleObject:PFObject = object as PFObject
                     self.alleObjecte.addObject(singleObject)
+                    
                 }
             }
             
@@ -57,7 +75,7 @@ class ViewController: UIViewController  {
                 self.name1 += tableItem["playerName"] as String
                 self.name1 += " mit "
                 self.name1 += "\(scorevalue) \n"
-
+                
                 
                 
             }
@@ -66,16 +84,21 @@ class ViewController: UIViewController  {
             self.name2 = ""
             
             self.alleObjecte.removeAllObjects()
-            
-            
         }
-        // Do any additional setup after loading the view, typically from a nib.
-        
-
     }
+    
     @IBAction func addPerson(sender: UIButton) {
+        self.updateUserScore()
+        sleep(10)
+        println("nach der pause")
         self.queryFromGame()
 
+
+    }
+    
+    
+    @IBAction func closeKeyBoard(sender: UIButton) {
+        self.setNameField.resignFirstResponder()
     }
     
 }

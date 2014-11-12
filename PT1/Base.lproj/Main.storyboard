@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="namen" translatesAutoresizingMaskIntoConstraints="NO" id="NoD-MU-hl8">
-                                <rect key="frame" x="45" y="73" width="230" height="92"/>
+                                <rect key="frame" x="50" y="50" width="218" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -31,16 +31,31 @@
                                     <action selector="addPerson:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xov-V9-lVN"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7RE-de-fM1">
+                                <rect key="frame" x="40" y="301" width="132" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtl-6O-NaA">
+                                <rect key="frame" x="199" y="269" width="30" height="30"/>
+                                <state key="normal" title="OO">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeKeyBoard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8HP-1i-Vqq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="setNameField" destination="7RE-de-fM1" id="FiM-ju-qFM"/>
                         <outlet property="textfeld" destination="NoD-MU-hl8" id="iGP-Jh-dMg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="360"/>
+            <point key="canvasLocation" x="33" y="388"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
