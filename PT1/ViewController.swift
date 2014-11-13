@@ -38,19 +38,21 @@ class ViewController: UIViewController  {
 
     func updateUserScore(){
         
-    var query = PFQuery(className:"GameScore")
-    query.getObjectInBackgroundWithId("Ou4W6HrUHK") {
-    (gameScore: PFObject!, error: NSError!) -> Void in
-        if error != nil {
-            NSLog("%@", error)
-        } else {
+        var query = PFQuery(className:"GameScore")
+        query.getObjectInBackgroundWithId("Ou4W6HrUHK") {
+            (gameScore: PFObject!, error: NSError!) -> Void in
+            if error != nil {
+                NSLog("%@", error)
+            }
+            else {
             gameScore["cheatMode"] = true
            // gameScore["score"] = 1339
             gameScore.incrementKey("score", byAmount: -1)
             gameScore["playerName"] = self.setNameField.text
             gameScore.saveInBackground()
+        
+            }
         }
-    }
     }
     
 
@@ -88,10 +90,13 @@ class ViewController: UIViewController  {
     }
     
     @IBAction func addPerson(sender: UIButton) {
-        self.updateUserScore()
-        sleep(10)
-        println("nach der pause")
-        self.queryFromGame()
+        let properties:[String] = ["alert", "hallo", "Increment","badge", "cheering.caf","sound"]
+        let datas:String = self.name1
+        let data = NSDictionary(objects: [datas,"Increment"], forKeys: ["alert","badge"])
+        var push = PFPush()
+        push.setChannel("global")
+        push.setData(data)
+        push .sendPushInBackground()
 
 
     }
@@ -101,5 +106,6 @@ class ViewController: UIViewController  {
         self.setNameField.resignFirstResponder()
     }
     
+
 }
 
