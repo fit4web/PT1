@@ -12,21 +12,38 @@ import CoreData
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+   func unloadNotify() {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        println("deinit")
+    }
+    
+            //  NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForeground", name:UIApplicationWillEnterForegroundNotification, object: nil)
+    
 
     var alleObjecte:NSMutableArray! = NSMutableArray()
-    var name1 = ""
     
     
     
-    @IBOutlet weak var textfeld: UITextView!
+    @IBOutlet weak var textfeld: UITextView?
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        unloadNotify()
+        println("viewDidDisaAppear")
+
+    }
     
     
     
     override func viewDidAppear(animated: Bool ) {
         super.viewDidAppear(animated)
-        self.queryFromGame()
-        println("viewDidAppear")
+        //Load Notification Listener for "APP opens a 2nd time
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOFReceivedNotication",   name:UIApplicationWillEnterForegroundNotification, object: nil)
+        
+        //Load Notification Listener for "APP got a Notification about Changes"
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOFReceivedNotication",   name:"didReceiveRemoteNotification", object: nil)
+       println("viewDidAppear")
         
         
     }
@@ -47,6 +64,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
        
 
     func queryFromGame(){
+        var name1:String = ""
+
         println("queryfromGame")
         var query:PFQuery = PFQuery(className: "GameScore")
         query.findObjectsInBackgroundWithBlock{
@@ -62,14 +81,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             for tableItem in self.alleObjecte {
               
-                self.name1 += tableItem["playerName"] as String
-                self.name1 += " bis "
-                self.name1 += tableItem["dueDate"] as String
+                name1 += tableItem["playerName"] as String
+                name1 += " bis "
+                name1 += tableItem["dueDate"] as String
             }
             
             
-            self.textfeld.text = self.name1
-            self.name1 = ""
+            self.textfeld?.text = name1
+            name1 = ""
             
             self.alleObjecte.removeAllObjects()
         }
@@ -78,14 +97,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
         
     @IBAction func closeKeyBoard(sender: UIButton) {
-        self.textfeld.resignFirstResponder()
     }
     
-    //delegates
+    //delegates and Selectors
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        return true
+    
+    func methodOFReceivedNotication(){
+        self.queryFromGame()
     }
+
     
 }
 

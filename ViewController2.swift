@@ -63,6 +63,12 @@ class ViewController2: UIViewController {
     @IBAction func addPerson(sender: UIButton) {
         updateDestination()
         pushIt("Noah ist in \(self.destinationField.text)")
+       self .dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     

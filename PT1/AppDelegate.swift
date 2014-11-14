@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
 
         registerForRemoteNotifications(application)
-
-       println(launchOptions)
         
         return true
     }
@@ -39,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             application.registerForRemoteNotificationTypes(.Alert | .Sound | .Badge)
         }
+
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
@@ -52,6 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         // Just show an alert when notifications are received in-app.
         PFPush.handlePush(userInfo)
+        
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("didReceiveRemoteNotification", object: nil)
+
         println("didReceiveNotif")
 
     }
@@ -72,14 +75,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        var rootViewController = self.window!.rootViewController
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var setViewController = mainStoryboard.instantiateInitialViewController() as ViewController
-        //      instantiateViewControllerWithIdentifier("CurrentShows") as ViewController_CurrentShows
+     
+     //   let vc = application.keyWindow?.rootViewController as ViewController;
+     //   vc.queryFromGame()
         
-        rootViewController?.navigationController?.popToRootViewControllerAnimated(false)
-        setViewController.queryFromGame()
+      //  NSNotificationCenter.defaultCenter().postNotificationName("binWiederDa", object: nil)
+ 
+        
         println("willEnterForegroud")
+     
 
     
     }
@@ -103,7 +107,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         println("willTerminate")
-
+           let vc = application.keyWindow?.rootViewController as ViewController;
+        vc.queryFromGame()
         self.saveContext()
     }
 
