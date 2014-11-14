@@ -12,14 +12,18 @@ import CoreData
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-   func unloadNotify() {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-        println("deinit")
+    //CoreData:
+    var daten = [People]()
+    var context = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    
+    func loadDataFromDB(){
+        let fetchRequest = NSFetchRequest(entityName: "People")
+        daten = context?.executeFetchRequest(fetchRequest, error: nil) as [People]
+        
+        println([daten])
     }
     
-            //  NSNotificationCenter.defaultCenter().addObserver(self, selector: "enterForeground", name:UIApplicationWillEnterForegroundNotification, object: nil)
     
-
     var alleObjecte:NSMutableArray! = NSMutableArray()
     
     
@@ -50,12 +54,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.queryFromGame()
+        var newPerson = NSEntityDescription.insertNewObjectForEntityForName("People", inManagedObjectContext: self.context!) as People
+        newPerson.playerName = "Nachname"
+        loadDataFromDB()
+    
     }
 
-    
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -99,12 +103,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func closeKeyBoard(sender: UIButton) {
     }
     
+    
+
+    //CoreData
+    func presentItemInfo() {
+        
+    }
+    
+    
     //delegates and Selectors
     
     
     func methodOFReceivedNotication(){
         self.queryFromGame()
     }
+    
+    func unloadNotify() {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        println("deinit")
+    }
+
+    
 
     
 }

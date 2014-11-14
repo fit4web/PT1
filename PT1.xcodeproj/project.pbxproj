@@ -31,6 +31,7 @@
 		4F87D41A1A0FFD9E002031CB /* dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F87D4191A0FFD9E002031CB /* dummy.m */; };
 		4F87D41C1A1004F6002031CB /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F87D41B1A1004F6002031CB /* ParseUI.framework */; };
 		4F87D4201A100B2F002031CB /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F87D41F1A100B2F002031CB /* ParseFacebookUtils.framework */; };
+		4FE2B4521A167D68005612B7 /* IataAirports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2B4511A167D68005612B7 /* IataAirports.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,10 +48,10 @@
 		4F50BE621A12985300921E99 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		4F50BEB21A143FDB00921E99 /* PT1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PT1.entitlements; sourceTree = "<group>"; };
 		4F50BEB51A1444C300921E99 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
-		4F6B97F91A14D50900552C8F /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController2.swift; path = ../ViewController2.swift; sourceTree = "<group>"; };
+		4F6B97F91A14D50900552C8F /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ViewController2.swift; path = ../ViewController2.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4F87D3D71A0FF99A002031CB /* PT1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PT1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F87D3DB1A0FF99A002031CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F87D3DC1A0FF99A002031CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4F87D3DC1A0FF99A002031CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4F87D3DF1A0FF99A002031CB /* PT1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PT1.xcdatamodel; sourceTree = "<group>"; };
 		4F87D3E11A0FF99A002031CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4F87D3E41A0FF99A002031CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,10 +71,11 @@
 		4F87D4111A0FFA9E002031CB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4F87D4141A0FFCF8002031CB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4F87D4151A0FFCF8002031CB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		4F87D4181A0FFD9D002031CB /* PT1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PT1-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F87D4181A0FFD9D002031CB /* PT1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "PT1-Bridging-Header.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		4F87D4191A0FFD9E002031CB /* dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dummy.m; sourceTree = "<group>"; };
 		4F87D41B1A1004F6002031CB /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		4F87D41F1A100B2F002031CB /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		4FE2B4511A167D68005612B7 /* IataAirports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IataAirports.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				4F87D3E31A0FF99A002031CB /* Main.storyboard */,
 				4F87D3E81A0FF99B002031CB /* LaunchScreen.xib */,
 				4F87D3DE1A0FF99A002031CB /* PT1.xcdatamodeld */,
+				4FE2B4511A167D68005612B7 /* IataAirports.swift */,
 				4F50BE621A12985300921E99 /* People.swift */,
 				4F50BEB51A1444C300921E99 /* Images-2.xcassets */,
 				4F87D3DA1A0FF99A002031CB /* Supporting Files */,
@@ -301,6 +304,7 @@
 				4F87D3E21A0FF99A002031CB /* ViewController.swift in Sources */,
 				4F87D3DD1A0FF99A002031CB /* AppDelegate.swift in Sources */,
 				4F87D41A1A0FFD9E002031CB /* dummy.m in Sources */,
+				4FE2B4521A167D68005612B7 /* IataAirports.swift in Sources */,
 				4F87D3E01A0FF99A002031CB /* PT1.xcdatamodeld in Sources */,
 				4F50BE631A12985300921E99 /* People.swift in Sources */,
 				4F6B97FA1A14D50900552C8F /* ViewController2.swift in Sources */,

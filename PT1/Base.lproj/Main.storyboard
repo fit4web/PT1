@@ -132,13 +132,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erF-qV-NbC">
+                                <rect key="frame" x="0.0" y="376" width="320" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5cB-GJ-j4M" id="bhq-ah-afP"/>
+                                    <outlet property="delegate" destination="5cB-GJ-j4M" id="M91-gh-UNX"/>
+                                </connections>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JQJ-oo-BkQ">
+                                <rect key="frame" x="40" y="220" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="uWj-aO-n1E"/>
                     <connections>
+                        <outlet property="alleDestinationen" destination="JQJ-oo-BkQ" id="zjP-Vq-XWZ"/>
                         <outlet property="dateField" destination="DJL-7e-BRj" id="5QN-oT-zpz"/>
                         <outlet property="destinationField" destination="E0K-5P-OQP" id="gnw-Nu-Zfk"/>
+                        <outlet property="picker" destination="erF-qV-NbC" id="Vap-Rd-glq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2e-SB-G8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
