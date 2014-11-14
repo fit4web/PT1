@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--mainvc-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="PT1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="mainvc" id="vXZ-lx-hvc" customClass="ViewController" customModule="PT1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,52 +17,133 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1J3-Tm-4ab">
-                                <rect key="frame" x="128" y="396" width="83" height="30"/>
-                                <state key="normal" title="Daten laden">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addPerson:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xov-V9-lVN"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Dein Name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7RE-de-fM1">
-                                <rect key="frame" x="29" y="326" width="132" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtl-6O-NaA">
-                                <rect key="frame" x="199" y="326" width="30" height="30"/>
-                                <state key="normal" title="OO">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="main" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtl-6O-NaA">
+                                <rect key="frame" x="17" y="14" width="307" height="74"/>
+                                <state key="normal" title=" ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="closeKeyBoard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8HP-1i-Vqq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wo geht die nächste Reise hin?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wka-HC-TXE">
-                                <rect key="frame" x="41" y="20" width="242" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="namen" translatesAutoresizingMaskIntoConstraints="NO" id="NoD-MU-hl8">
-                                <rect key="frame" x="37" y="48" width="218" height="211"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="lade.... bitte um etwas Geduld" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NoD-MU-hl8">
+                                <rect key="frame" x="16" y="112" width="288" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="P87-vn-kqW"/>
+                                </constraints>
+                                <color key="textColor" red="0.16115389983221176" green="0.090797996548817275" blue="0.64934501262626265" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wo ist Noah gerade?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wka-HC-TXE">
+                                <rect key="frame" x="16" y="61" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="T7g-MF-nQe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.77375315656565657" green="0.1511473498946555" blue="0.15418552034419655" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGM-Xt-jGh">
+                                <rect key="frame" x="104" y="480" width="112" height="30"/>
+                                <state key="normal" title="Standort ändern">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5cB-GJ-j4M" kind="modal" id="OJb-aA-vlp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qtl-6O-NaA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="1" id="0Hf-LB-xes"/>
+                            <constraint firstItem="Wka-HC-TXE" firstAttribute="leading" secondItem="NoD-MU-hl8" secondAttribute="leading" id="8cP-se-gsg"/>
+                            <constraint firstItem="NoD-MU-hl8" firstAttribute="trailing" secondItem="Wka-HC-TXE" secondAttribute="trailing" id="H89-wd-G2M"/>
+                            <constraint firstItem="NoD-MU-hl8" firstAttribute="top" secondItem="Wka-HC-TXE" secondAttribute="bottom" constant="30" id="XTa-qS-pQb"/>
+                            <constraint firstItem="Qtl-6O-NaA" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="14" id="aJ0-gZ-VzZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qtl-6O-NaA" secondAttribute="trailing" constant="-20" id="g3K-Ar-UxN"/>
+                            <constraint firstItem="Wka-HC-TXE" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="jgi-gI-hY7"/>
+                            <constraint firstItem="Wka-HC-TXE" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="41" id="tNj-Ic-WMa"/>
+                            <constraint firstItem="NoD-MU-hl8" firstAttribute="top" secondItem="Qtl-6O-NaA" secondAttribute="bottom" constant="24" id="tnj-Xd-H9b"/>
+                            <constraint firstItem="Wka-HC-TXE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="uMY-dp-jMR"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="setNameField" destination="7RE-de-fM1" id="FiM-ju-qFM"/>
                         <outlet property="textfeld" destination="NoD-MU-hl8" id="iGP-Jh-dMg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="33" y="388"/>
+        </scene>
+        <!--editor-->
+        <scene sceneID="8J0-x3-Cxk">
+            <objects>
+                <viewController title="editor" id="5cB-GJ-j4M" customClass="ViewController2" customModule="PT1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F65-Dq-cgT"/>
+                        <viewControllerLayoutGuide type="bottom" id="uhu-it-FF9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="CurrentShows" id="Mj9-yj-meW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYR-sS-tsf">
+                                <rect key="frame" x="16" y="20" width="48" height="30"/>
+                                <state key="normal" title="Zurück">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="jxG-5v-7JC"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0K-5P-OQP">
+                                <rect key="frame" x="16" y="87" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5cB-GJ-j4M" id="Qlg-jm-ifO"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DJL-7e-BRj">
+                                <rect key="frame" x="16" y="170" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destination:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYI-G1-BCG">
+                                <rect key="frame" x="16" y="58" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhA-Y7-trz">
+                                <rect key="frame" x="253" y="20" width="51" height="30"/>
+                                <state key="normal" title="senden">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPerson:" destination="5cB-GJ-j4M" eventType="touchUpInside" id="FIO-HT-gO0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bis:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyJ-la-eU7">
+                                <rect key="frame" x="16" y="147" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uWj-aO-n1E"/>
+                    <connections>
+                        <outlet property="dateField" destination="DJL-7e-BRj" id="5QN-oT-zpz"/>
+                        <outlet property="destinationField" destination="E0K-5P-OQP" id="gnw-Nu-Zfk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2e-SB-G8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="580" y="452"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
